@@ -1,0 +1,14 @@
+{
+  "name": "windows-explorer",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "install:all": "concurrently \"bun install\" \"cd ./backend && bun install\" \"cd ./frontend && bun install\"",
+    "dev": "concurrently \"cd ./backend && bun dev\" \"cd ./frontend && bun dev\""
+  },
+  "dependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "devDependencies": {}
+}

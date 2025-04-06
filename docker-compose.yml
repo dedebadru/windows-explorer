@@ -1,0 +1,24 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: windows-explorer-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: windows-explorer
+      MYSQL_USER: user
+      MYSQL_PASSWORD: xxxxxxxxxxxxxxxxx
+    ports:
+      - "33060:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - mysql-network
+    restart: always
+
+volumes:
+  mysql-data:
+    name: mysql-volume
+
+networks:
+  mysql-network:
+    name: mysql-network
