@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "install:all": "concurrently \"bun install\" \"cd ./backend && bun install\" \"cd ./frontend && bun install\"",
-    "dev": "concurrently \"cd ./backend && bun dev\" \"cd ./frontend && bun dev\""
+    "dev": "concurrently \"cd ./backend && bun dev\" \"cd ./frontend && bun dev\"",
+    "seed": "bun run ./backend/prisma/seed.ts"
   },
   "dependencies": {
     "concurrently": "^9.1.2"
