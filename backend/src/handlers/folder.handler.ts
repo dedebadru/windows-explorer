@@ -12,7 +12,9 @@ app.get('/api/v1/folders', async ({ set }) => {
     const folders = await folderService.getRootFolders();
     return { code: set.status, message: "success", data: folders };
   } catch (error) {
-    return { error: 'Error fetching root folders' };
+    set.status = 500
+    const errorMessage = error instanceof Error ? error.message : "Error fetching folder";
+    return { code: set.status, message: errorMessage };
   }
 });
 

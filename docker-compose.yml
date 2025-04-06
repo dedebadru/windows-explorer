@@ -12,7 +12,39 @@ services:
     volumes:
       - mysql-data:/var/lib/mysql
     networks:
-      - mysql-network
+      - explorer-network
+    restart: always
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: windows-explorer-backend
+    environment:
+      - DB_HOST=mysql
+      - DB_PORT=33060
+      - DB_USERNAME=user
+      - DB_PASSWORD=xxxxxxxxxxxxxxxxx
+      - DB_NAME=windows-explorer
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    networks:
+      - explorer-network
+    restart: always
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: windows-explorer-frontend
+    ports:
+      - "8088:80"
+    depends_on:
+      - backend
+    networks:
+      - explorer-network
     restart: always
 
 volumes:
@@ -20,5 +52,5 @@ volumes:
     name: mysql-volume
 
 networks:
-  mysql-network:
-    name: mysql-network
+  explorer-network:
+    name: explorer-network
