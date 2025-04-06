@@ -1,5 +1,7 @@
 # Windows Explorer
 
+<img width="100%" alt="Windows Explorer" src="https://github.com/user-attachments/assets/7ad86cd0-14e2-4c85-9c98-e2c50d2d116d" />
+
 ## Project Overview
 Folder and file explorer using `ElysiaJS` and `Vue.js`.
 
