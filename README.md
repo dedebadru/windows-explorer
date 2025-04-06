@@ -20,6 +20,22 @@ git clone https://github.com/dedebadru/windows-explorer.git
 cd windows-explorer
 ```
 
+#### Using Docker Compose
+Build and start the application:
+```bash
+docker-compose up --build
+```
+
+Access the application:
+- Frontend: `http://localhost:8088`
+- Backend API: `http://localhost:8080`
+
+#### Stopping the Application
+```bash
+docker-compose down
+```
+
+#### Development
 Install dependency:
 ```bash
 bun install:all
