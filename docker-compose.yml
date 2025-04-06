@@ -21,17 +21,15 @@ services:
       dockerfile: Dockerfile
     container_name: windows-explorer-backend
     environment:
-      - DB_HOST=mysql
-      - DB_PORT=33060
-      - DB_USERNAME=user
-      - DB_PASSWORD=xxxxxxxxxxxxxxxxx
-      - DB_NAME=windows-explorer
+      - DATABASE_URL=mysql://root:rootpassword@mysql:3306/windows-explorer
     ports:
       - "8080:8080"
     depends_on:
       - mysql
     networks:
       - explorer-network
+    links:
+      - mysql
     restart: always
 
   frontend:
