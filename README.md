@@ -35,6 +35,11 @@ Start the application:
 bun dev
 ```
 
+Running Tests:
+```bash
+bun test
+```
+
 ### Backend (Bun)
 - Located in `./backend`
 - Uses `ElysiaJS` framework
